@@ -16,11 +16,11 @@ require("stylesheets/forntend/index.js")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-bulmaBurger=document.querySelector(".navbar-brand.navbar-burger");
-if(bulmaBurger){
-   bulmaBurger.addEventListener("click",function(){
-         alert("press");
-         //document.querySelector('.navbar-menu').classList.add("is-active");
-   })
-}
+// bulmaBurger=document.querySelector(".navbar-brand.navbar-burger");
+// if(bulmaBurger){
+//    bulmaBurger.addEventListener("click",function(){
+//          alert("press");
+//          //document.querySelector('.navbar-menu').classList.add("is-active");
+//    })
+// }
 import "controllers"
