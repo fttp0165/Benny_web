@@ -8,7 +8,7 @@
       </div>
       <div class="column">
             <figure class="image is-128x128 ">
-              <%= image_tag @info.picture.variant(resize_to_limit: [100, 100]),class:"is-rounded" if @info.picture.attached? %>
+              <%= image_tag @info.picture.variant(resize_to_limit: [350, 350]),class:"is-rounded" if @info.picture.attached? %>
             </figure>
       </div>
       <div class="column has-text-grey-light has-text-right-in-desktop">
