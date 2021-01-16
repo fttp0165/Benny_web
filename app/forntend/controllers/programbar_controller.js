@@ -9,8 +9,9 @@ export default class extends Controller {
             this.valueTarget.setAttribute("value",'0')
            
             for(var i=0;i<=preValue;i++){
-            //   setTimeout(function () {    }, 100 * i);
+           setInterval(()=>{    
               this.valueTarget.setAttribute("value",`${i}`)
+            },1000*i);
             }
             
             

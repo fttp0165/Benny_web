@@ -1,0 +1,29 @@
+<h1 class="title">新增ＣＶ資訊</h1>   
+
+<section class="infosection">
+<%= form_for @info do |form|%>
+<div class="field">
+      <label class="label">名字</label>
+      <div class="control">
+        <%= form.text_field :name ,class:"input"%>
+      </div>
+</div>
+<div class="field">
+      <label class="label">英文</label>
+      <div class="control">
+        <%= form.text_field :ename ,class:"input"%>
+      </div>
+</div>
+
+<div class="field">
+      <label class="label">上傳大頭照</label>
+      <div class="control">
+        <%= form.file_field :picture %>
+      </div>
+</div>
+<div class="level">
+<%= form.submit '送出'%>
+</div>
+</section>   
+
+<%end%>
