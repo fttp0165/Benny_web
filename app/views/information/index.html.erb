@@ -1,5 +1,5 @@
-<section class="section level">
-      <div class="column">
+<section class="section columns ">
+      <div class="column mt-6">
             <h1 class="title">林宗慶/Benny</h1><br />
             <h2 class="subtitle">
             <%=link_to "new", new_information_path%>
@@ -11,17 +11,18 @@
               <%= image_tag @info.picture.variant(resize_to_limit: [640, 640]),class:"is-rounded" if @info.picture.attached? %>
             </figure>
       </div>
-      <div class="column has-text-grey-light has-text-right-in-desktop">
+      <!-- contact --> 
+      <div class="column has-text-grey-light has-text-right-in-desktop is-size-4 mt-6 ml-6">
             <p class=has-text-weight-light>Taiwan</p>
             <div class="social-icon">
-                  <%=link_to "mailto:benny08118@gmail.com" ,class:"github" do%>
+                  <%=link_to "mailto:benny08118@gmail.com" ,class:"github is-mi" do%>
                         <p class="has-text-black">E-mail
                               <i class="fas fa-envelope-open-text"></i>
                         </p>
                         <%end%>
             </div>
             <div class="social-icon">
-                  <%=link_to "https://benny08118.medium.com/" ,class:"github" do%>
+                  <%=link_to "https://benny08118.medium.com/" ,class:"github " do%>
                         <p class="has-text-black">Medium
                               <i class="fab fa-medium"></i>
                         </p>
@@ -44,13 +45,9 @@
 <section class="section columns ">
       <div class="box colum has-text-link mx-1 mb-0" >
             <div class="summary">
-                  <div class="title title-content">SUMMARY</div>
+                  <div class="title title-content">簡介</div>
                   <div class="summary-content">
-                        <p>吸月時戲進備細我道源公，長的來告新天華海個，
-                              從很所色他界毛德標萬小人事張動是用日明團地事生地定加身時經童媽
-                              ，量本世的商話盡平，快理易亮石社其來代化戰的日下臉生流站時各公樹們的位著不部？
-                              運了別無客雨定分常媽片手須面戲方水技業在
-                              ，美油怎意可可她先天眼，不排親首，反我林這於起笑天知身開經？</p>
+                        <pre><%= @info.summary %></pre>
                   </div>
             </div>
             <hr>

@@ -31,6 +31,6 @@ class InformationController < ApplicationController
   private
 
   def info_parama_primet
-    params.require(:information).permit(:name,:ename,:picture)
+    params.require(:information).permit(:name,:ename,:picture,:summary)
   end
 end

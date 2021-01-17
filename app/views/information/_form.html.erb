@@ -18,6 +18,12 @@
         <%= form.file_field :picture %>
       </div>
 </div>
+<div class="field">
+      <label class="label">簡介</label>
+      <div class="summary">
+        <%= form.text_area :summary,class:"textarea" %>
+      </div>
+</div>
 <div class="level">
 <%= form.submit '送出'%>
 </div>
