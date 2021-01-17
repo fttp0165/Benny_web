@@ -14,6 +14,19 @@ class InformationController < ApplicationController
     end
   end
 
+  def edit
+    @info=Information.first
+  end
+
+  def update
+    @info=Information.first
+    if @info.update(info_parama_primet)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
 
   private
 
