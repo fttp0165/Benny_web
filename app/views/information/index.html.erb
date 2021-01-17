@@ -97,19 +97,31 @@
               <div class="title title-content">PROJECT</div>
               <div class="project-content">
                   <section class="accordions">
-                    <%  @projects.each do |project|%>
+                    <%@projects.each do |project|%>
                         <article class="accordion"  data-controller="drop" data-drop-target="output">
                           <div class="accordion-header">
-                            <p>Hello World</p>
+                            <%=project.project_name%>
+                            <%if current_user%>
+                              <%=link_to "編輯",edit_project_path(project)%>
+                            <%end%>
                             <button class="toggle" aria-label="toggle" data-action="click->drop#drop"></button>
                           </div>
                           <div class="accordion-body">
                             <div class="accordion-content" >
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                              <div class="colums">
+                                <div class="colum image is-5by4">
+                                  <%= image_tag project.project_picture.variant(resize_to_limit: [1280, 640]) if project.project_picture.attached? %>
+                                </div>
+                                <div class="colum">
+                                  <pre>
+                                  <%=strip_tags(project.project_content).truncate(150)%>
+                                  </pre>  
+                                </div>
+                            </div>
                             </div>
                           </div>
                         </article>
-
+                      <%end%>
                       
                       </section>
                       
