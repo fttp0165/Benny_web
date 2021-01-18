@@ -1,0 +1,18 @@
+<%= form_for skill do |form|%>
+<div class="field">
+      <label class="label">技能名稱</label>
+      <div class="control">
+        <%= form.text_field :skill_name ,class:"input"%>
+      </div>
+</div>
+<div class="field">
+  <label class="label">技能值</label>
+  <div class="control">
+    <%= form.range_field :skill_value, in: 1..100,class:"input", id:"sliderWithValue" ,value:"50" ,min:"0",max:"100",step:"1", type:"range"  %>
+    <output for="sliderWithValue">50</output>
+  </div>
+</div>
+<div class="level">
+<%= form.submit class:"button is-primary level-right" %>
+</div>
+<%end%>

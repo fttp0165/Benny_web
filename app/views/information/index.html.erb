@@ -106,7 +106,7 @@
                             <%if current_user%>
                               <%=link_to "編輯",edit_project_path(project)%>
                             <%end%>
-                            <button class="toggle" aria-label="toggle" data-action="click->drop#drop"></button>
+                            <button class="toggle has-background-info" aria-label="toggle" data-action="click->drop#drop"></button>
                           </div>
                           <div class="accordion-body">
                             <div class="accordion-content" >
@@ -121,7 +121,7 @@
                                       <%= image_tag project.project_picture if project.project_picture.attached? %>
                                     </p>
                                   </div>
-                                  <button class="modal-close is-large" data-action="click->lightbox#close" aria-label="close"></button>
+                                  <button class="modal-close is-large has-background-info" data-action="click->lightbox#close" aria-label="close"></button>
                                 </div>
                                 <div class="colum">
                                   <%=project.project_content%>
@@ -141,9 +141,10 @@
                   <div class="title title-content">SKILL</div>
                   <div class="skill-content" >
                         <ul class="block-list is-small is-outlined is-success is-centered">
-                              <li >rails</li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="25" value="0"   max="100">15%</progress>
-                              <li>javascript</li><progress id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="35" value="0" data-value="35" max="100">15%</progress>
-                              <li>jquery</li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="45" data-value="55" value="0" max="100">15%</progress>
+                              <%@skills.each do |skill|%>
+                                <li ><%=skill.skill_name%></li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="<%=skill.skill_value%>" value="<%="#{skill.skill_value}"%>"    max="100"></progress>
+                              <%end%>
+                         
                         </ul>
                   </div>
             </div>
