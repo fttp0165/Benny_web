@@ -14,9 +14,9 @@
 </div>
 <div class="field">
       <label class="label">簡介</label>
-      <div class="summary">
-        <%= form.text_area :project_content,class:"textarea" %>
-      </div>
+     
+        <%= form.rich_text_area :project_content ,class:"textarea textarea_size",rows:"50"%>
+      
 </div>
 <div class="level">
 <%= form.submit '送出'%>
