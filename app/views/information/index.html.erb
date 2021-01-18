@@ -108,10 +108,20 @@
                           </div>
                           <div class="accordion-body">
                             <div class="accordion-content" >
-                              <div class="colums">
-                                <div class="colum image is-5by4">
-                                  <%= image_tag project.project_picture.variant(resize_to_limit: [1280, 640]) if project.project_picture.attached? %>
+                              <div class="colums"  data-controller="lightbox" data-lightbox-lightboxname-value="modal" >
+                                <div class="colum image is-2by1" >
+                                  <%= image_tag project.project_picture.variant(resize_to_limit: [640, 340]),class:"modal-button","data-action":"click->lightbox#show" if project.project_picture.attached? %>
                                 </div>
+                                <div class="modal">
+                                  <div class="modal-background" data-action="click->lightbox#close"></div>
+                                  <div class="modal-content">
+                                    <p class="image">
+                                      <%= image_tag project.project_picture if project.project_picture.attached? %>
+                                    </p>
+                                  </div>
+                                  <button class="modal-close is-large" data-action="click->lightbox#close" aria-label="close"></button>
+                                </div>
+                            
                                 <div class="colum">
                                   <pre>
                                   <%=truncate(strip_tags(project.project_content.to_s), length: 50)%>
