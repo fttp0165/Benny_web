@@ -106,7 +106,7 @@
                             <%if current_user%>
                               <%=link_to "編輯",edit_project_path(project)%>
                             <%end%>
-                            <button class="toggle" aria-label="toggle" data-action="click->drop#drop"></button>
+                            <button class="toggle has-background-info" aria-label="toggle" data-action="click->drop#drop"></button>
                           </div>
                           <div class="accordion-body">
                             <div class="accordion-content" >
@@ -121,7 +121,7 @@
                                       <%= image_tag project.project_picture if project.project_picture.attached? %>
                                     </p>
                                   </div>
-                                  <button class="modal-close is-large" data-action="click->lightbox#close" aria-label="close"></button>
+                                  <button class="modal-close is-large has-background-info" data-action="click->lightbox#close" aria-label="close"></button>
                                 </div>
                                 <div class="colum">
                                   <%=project.project_content%>
