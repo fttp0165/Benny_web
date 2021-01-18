@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root "information#index"
   resources :projects
   resources :information
-
+  resources :skills
 end

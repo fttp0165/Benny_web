@@ -2,6 +2,7 @@ class InformationController < ApplicationController
   def index
     @info=Information.first
     @projects=Project.all
+    @skills=Skill.all
   end
   def new 
     @info=Information.new

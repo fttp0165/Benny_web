@@ -141,9 +141,10 @@
                   <div class="title title-content">SKILL</div>
                   <div class="skill-content" >
                         <ul class="block-list is-small is-outlined is-success is-centered">
-                              <li >rails</li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="25" value="0"   max="100">15%</progress>
-                              <li>javascript</li><progress id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="35" value="0" data-value="35" max="100">15%</progress>
-                              <li>jquery</li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="45" data-value="55" value="0" max="100">15%</progress>
+                              <%@skills.each do |skill|%>
+                                <li ><%=skill.skill_name%></li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="<%=skill.skill_value%>" value="<%="#{skill.skill_value}"%>"    max="100"></progress>
+                              <%end%>
+                         
                         </ul>
                   </div>
             </div>
