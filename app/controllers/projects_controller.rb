@@ -10,15 +10,15 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end   
+    end    
   end
 
   def edit
-    @project=Project.find_by(params[:id])
+    @project=Project.find(params[:id])
   end
 
   def update
-    @project=Project.find_by(params[:id])
+    @project=Project.find(params[:id])
     if @project.update(project_pramas_permit)
       redirect_to root_path
     else

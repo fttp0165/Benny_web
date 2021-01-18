@@ -43,7 +43,8 @@
 <div class="hr"></div>
 
 <section class="section columns ">
-      <div class="box colum has-text-link mx-1 mb-0" >
+      <!-- 簡介 與 歷程 -->
+      <div class="box column has-text-link mx-1 mb-0" >
             <div class="summary">
                   <div class="title title-content">簡介</div>
                   <div class="summary-content">
@@ -92,12 +93,13 @@
 
             </div>
       </div>
-      <div class="box colum has-text-link mx-1">
+      <!-- 作品 與 技能 -->
+      <div class="box column has-text-link mx-1">
             <div class="project">
               <div class="title title-content">PROJECT</div>
               <div class="project-content">
                   <section class="accordions">
-                    <%@projects.each do |project|%>
+                    <%@projects.each_with_index do |project,index|%>
                         <article class="accordion"  data-controller="drop" data-drop-target="output">
                           <div class="accordion-header">
                             <%=project.project_name%>
@@ -108,11 +110,11 @@
                           </div>
                           <div class="accordion-body">
                             <div class="accordion-content" >
-                              <div class="colums"  data-controller="lightbox" data-lightbox-lightboxname-value="modal" >
-                                <div class="colum image is-2by1" >
+                              <div class="column"  data-controller="lightbox" data-lightbox-lightboxname-value=<%="m-#{index.to_s}"%>>
+                                <div class="image is-2by1" >
                                   <%= image_tag project.project_picture.variant(resize_to_limit: [640, 340]),class:"modal-button","data-action":"click->lightbox#show" if project.project_picture.attached? %>
                                 </div>
-                                <div class="modal">
+                                <div class=" <%="modal"+" "+"m-#{index}"%>">
                                   <div class="modal-background" data-action="click->lightbox#close"></div>
                                   <div class="modal-content">
                                     <p class="image">
@@ -121,11 +123,8 @@
                                   </div>
                                   <button class="modal-close is-large" data-action="click->lightbox#close" aria-label="close"></button>
                                 </div>
-                            
                                 <div class="colum">
-                                  <pre>
-                                  <%=truncate(strip_tags(project.project_content.to_s), length: 50)%>
-                                  </pre>  
+                                  <%=project.project_content%>
                                 </div>
                             </div>
                             </div>
