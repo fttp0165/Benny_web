@@ -28,4 +28,5 @@ require("@rails/actiontext")
 //    })
 // }
 import "controllers"
-
+import "stylesheets/forntend"
+import "stylesheets/backend"
