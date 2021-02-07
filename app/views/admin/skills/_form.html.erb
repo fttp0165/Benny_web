@@ -5,11 +5,16 @@
         <%= form.text_field :skill_name ,class:"input"%>
       </div>
 </div>
-<div class="field">
+<div class="field"  data-controller="skillBar">
   <label class="label">技能值</label>
   <div class="control">
-    <%= form.range_field :skill_value, in: 1..100,class:"slide", id:"sliderWithValue" ,value:"50" ,min:"0",max:"100",step:"1", type:"range"  %>
-    <output for="sliderWithValue">50</output>
+    <%= form.range_field :skill_value, in: 1..100,class:"slide", id:"sliderWithValue", 
+                                                               value:"50" ,min:"0",max:"100",
+                                                               step:"1", type:"range",
+                                                               'data-skillBar-target':"value",
+                                                               'data-action':"skillBar#change",
+                                                               data:{value:"#{skill.skill_value}"} %>
+    <output for="sliderWithValue" data-skillBar-target="showValue">50</output>
   </div>
 </div>
 <div class="level">
