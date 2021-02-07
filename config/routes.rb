@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root  'projects#index'
     resources :projects,except:[:show]
+    resources :skills,except:[:show]
   end
   resources :projects
   resources :information

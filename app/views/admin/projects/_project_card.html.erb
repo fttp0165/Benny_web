@@ -1,0 +1,23 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title is-centered">
+      <%=project.project_name%>
+    </p>
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <%=project.project_content%>
+      <br>
+      <hr>
+      <%=time_tag project.updated_at%>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <%=link_to "Edit",edit_admin_project_path(project),class:"button card-footer-item is-info"%>
+    <%=link_to "Delete",admin_project_path(project),method: :delete,data:{confirm:"Are you sure?"},class:"button card-footer-item is-danger"%>
+  </footer>

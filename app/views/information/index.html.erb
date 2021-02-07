@@ -106,9 +106,6 @@
                         <article class="accordion"  data-controller="drop" data-drop-target="output">
                           <div class="accordion-header">
                             <%=project.project_name%>
-                            <%if current_user%>
-                              <%=link_to "編輯",edit_project_path(project)%>
-                            <%end%>
                             <button class="toggle has-background-info" aria-label="toggle" data-action="click->drop#drop"></button>
                           </div>
                           <div class="accordion-body">
