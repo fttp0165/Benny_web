@@ -1,9 +1,13 @@
 class Admin::ProjectsController < Admin::BaseController
-  before_action :authenticate_user!
+
   before_action :find_project,only:[:edit,:update]
 
   def index
     @projects=Project.order(create_at: :desc)
+  end
+
+  def new
+    @project=Project.new
   end
 
   def create
