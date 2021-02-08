@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :projects,except:[:show]
     resources :skills,except:[:show]
     resources :information,except:[:show]
+    resources :experiences,except:[:show]
   end
   resources :projects
   resources :information
