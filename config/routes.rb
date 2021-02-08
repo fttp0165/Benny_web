@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root  'projects#index'
     resources :projects,except:[:show]
     resources :skills,except:[:show]
-    resources :information,except:[:show,:index]
+    resources :information,except:[:show]
   end
   resources :projects
   resources :information
