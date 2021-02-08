@@ -1,0 +1,25 @@
+
+<h1 class="title">新增經歷</h1>
+<%= form_with(model: [:admin,exp]) do |exp|%>
+  <div class="field">
+    <%=exp.label :name,'經歷',class:'label'%>
+    <%=exp.text_field :name,class:'input'%>
+  </div>
+  <div class="field">
+    <%=exp.label :location,'地點',class:'label'%>
+    <%=exp.text_field :location,class:'input'%>
+  </div>
+  <div class="field">
+    <%=exp.label :start_time,'開始時間',class:'label'%>
+    
+    <%=exp.date_select :start_time,class:'input is-info'%>
+  </div>
+  <div class="field">
+    <%=exp.label :end_time,'結束時間',class:'label '%>
+    <%=exp.date_select :end_time,class:'select is-info'%>
+  </div>
+  <div class="level">
+    <div class="level-left"></div>
+   <%=exp.submit '新增',class:'button is-primary level-right'%>
+</div>
+<%end%>
