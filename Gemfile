@@ -34,7 +34,7 @@ gem 'omniauth-google-oauth2', '~> 0.8.1'
 gem 'figaro', '~> 1.2'
 gem "omniauth-rails_csrf_protection"
 #soft delete
-gem 'acts_as_paranoid', '~> 0.7.0'
+gem 'paranoia', '~> 2.4', '>= 2.4.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

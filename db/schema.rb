@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 2021_02_10_130120) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "delete_at"
+    t.datetime "deleted_at"
     t.integer "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["delete_at"], name: "index_categories_on_delete_at"
+    t.index ["deleted_at"], name: "index_categories_on_deleted_at"
   end
 
   create_table "experiences", force: :cascade do |t|
