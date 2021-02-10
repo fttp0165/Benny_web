@@ -10,7 +10,9 @@
   </head>
 
   <body>
-
+    
+  
+    <%=render 'common/frontend/flash' if notice%>
     <%=render 'common/backend/nav'%>
     <%= render  'common/backend/tab'%>
     <div class="container"> <%= yield %></div>

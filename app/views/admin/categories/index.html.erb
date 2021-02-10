@@ -1,1 +1,14 @@
+
+<div class="field">
 <%=link_to "新增類別",new_admin_category_path,class:'button is-info'%>
+</div>
+<%@categories.each do |category|%>
+<article class="message is-primary">
+  <div class="message-body level">
+   <%=link_to category.name,admin_category_path(category),class:'has-text-black'%>
+   <div class="level-right">
+   <%=link_to "刪除",admin_category_path(category),mothed: :delete,data:{confirm:"Are you sure?!"},class:'button is-danger '%>
+  </div>
+  </div>
+</article>
+<%end%>

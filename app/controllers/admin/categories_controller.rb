@@ -1,15 +1,20 @@
 class Admin::CategoriesController < Admin::BaseController
-
+  before_action :find_category,only:[:edit,:update,:destory]
   def index
-    
+    @categories=Category.all
   end
 
   def new
     @category=Category.new
   end
 
-  def crate
-    
+  def create
+    @category=Category.new(category_params)
+    if @category.save
+      redirect_to admin_categories_path,notice:"新增成功！"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,10 +32,10 @@ class Admin::CategoriesController < Admin::BaseController
   private
 
   def find_category
-  
+    @category=Category.find(params[:id])
   end
 
   def category_params
-    params.require(:categories).permit(:name)
+    params.require(:category).permit(:name)
   end
 end
