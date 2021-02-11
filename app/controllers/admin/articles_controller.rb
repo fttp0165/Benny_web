@@ -1,6 +1,8 @@
-class Admin::ArticlesController < ApplicationController
+class Admin::ArticlesController < Admin::BaseController
+  before_action :find_artivle,only:[:edit,:update,:destory]
+
   def index
-    @articles=article.all
+    @articles=Article.all
   end
 
   def new
@@ -21,7 +23,11 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def update
-    
+    if @article.update(article_params)
+      redirect_to admin_articles_path,notice:"更新成功！"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -35,6 +41,6 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:name)
+    params.require(:article).permit(:title,:content,:category_id)
   end
 end

@@ -1,0 +1,18 @@
+<h1 class="title">文章列表</h1>
+
+<div class="field">
+  <%=link_to "新增文章",new_admin_article_path,class:'button is-info'%>
+</div>
+
+<div class="field">
+  <%@articles.each do |article|%>
+  <article class="message is-primary">
+    <div class="message-body level">
+     <%=link_to article.title,edit_admin_article_path(article),class:'has-text-black'%>
+     <div class="level-right">
+     <%=link_to "刪除",admin_article_path(article),mothed: :delete,data:{confirm:"Are you sure?!"},class:'button is-danger '%>
+    </div>
+    </div>
+  </article>
+</div>
+<%end%>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :information,except:[:show]
     resources :experiences,except:[:show]
     resources :categories,except:[:show]
+    resources :articles,except:[:show]
   end
   resources :projects
   resources :information
