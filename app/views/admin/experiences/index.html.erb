@@ -1,1 +1,17 @@
-<%=link_to '新增經歷',new_admin_experience_path,class:'button is-info'%>
+<div class="field">
+  <%=link_to '新增經歷',new_admin_experience_path,class:'button is-info'%>
+</div>
+<%@exp.each do |exp|%>
+<div class="field">
+  <article class="message is-primary">
+    <div class="message-body level">
+    <%#=time_tag exp.start_date%>-<%#=time_tag exp.end_date%>
+     <%=link_to exp.name,edit_admin_experience_path(exp),class:'has-text-black'%>
+     <%=exp.start_date%>
+     <div class="level-right">
+     <%=link_to "刪除",admin_experience_path(exp),mothed: :delete,data:{confirm:"Are you sure?!"},class:'button is-danger '%>
+    </div>
+    </div>
+  </article>
+</div>
+<%end%>

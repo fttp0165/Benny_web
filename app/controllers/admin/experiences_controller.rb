@@ -1,5 +1,5 @@
 class Admin::ExperiencesController < Admin::BaseController
-  before_action :find_experience,only:[:edit,:update]
+  before_action :find_experience,only:[:edit,:update,:destroy]
   def index
     @exp=Experience.all
   end
@@ -9,12 +9,13 @@ class Admin::ExperiencesController < Admin::BaseController
   end
 
   def create
+    ff
     @exp=Experience.new(exp_params)
-    if @exp.save
-      redirect_to admin_experiences_path,notice:"新增經歷成功"
-    else
-      render :new
-    end
+    # if @exp.save
+    #   redirect_to admin_experiences_path,notice:"新增經歷成功"
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -36,7 +37,13 @@ class Admin::ExperiencesController < Admin::BaseController
   end
 
   def exp_params
-    params.require(:experiences).permit(:name,:location,:start_date,:end_date)
+  
+    params.require(:experience).permit(:name,
+                                        :location,
+                                        :start_date,
+                                        :end_date,  
+                                        :positin,
+                                        :deleted_at)
   end
   
 end
