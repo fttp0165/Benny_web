@@ -11,7 +11,7 @@
     <% @info.each do |info|%>
     <div class="box">
       <%=info.name%> <br>
-      <%=info.summary.truncate(50) unless info.nil?%><br>
+      <%=info.summary.truncate(50) unless info.summary.nil?%><br>
       <%=link_to "編輯",edit_admin_information_path(info),class:"button is-info"%>
       <%=link_to "刪除",admin_information_path(info),method: :delete,data:{confirm:"Are you sure?"},class:"button is-danger"%>
     </div>
