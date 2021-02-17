@@ -1,0 +1,38 @@
+<div class="project">
+  <div class="title title-content">PROJECT</div>
+  <div class="project-content">
+      <section class="accordions">
+        <%projects.each_with_index do |project,index|%>
+            <article class="accordion"  data-controller="drop" data-drop-target="output">
+              <div class="accordion-header">
+                <%=project.project_name%>
+                <button class="toggle has-background-info" aria-label="toggle" data-action="click->drop#drop"></button>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content" >
+                  <div class="column"  data-controller="lightbox" data-lightbox-lightboxname-value=<%="m-#{index.to_s}"%>>
+                    <div class="image is-2by1" >
+                      <%= image_tag project.project_picture.variant(resize_to_limit: [640, 340]),class:"modal-button","data-action":"click->lightbox#show" if project.project_picture.attached? %>
+                    </div>
+                    <div class=" <%="modal"+" "+"m-#{index}"%>">
+                      <div class="modal-background" data-action="click->lightbox#close"></div>
+                      <div class="modal-content">
+                        <p class="image">
+                          <%= image_tag project.project_picture if project.project_picture.attached? %>
+                        </p>
+                      </div>
+                      <button class="modal-close is-large has-background-info" data-action="click->lightbox#close" aria-label="close"></button>
+                    </div>
+                    <div class="colum">
+                      <%=project.project_content%>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </article>
+          <%end%>
+          
+          </section>
+          
+  </div>
+</div>

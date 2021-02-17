@@ -1,151 +1,37 @@
 <section class="section columns ">
-      <div class="column mt-6">
-            <h1 class="title">林宗慶/Benny</h1><br />
-        
-      </div>
-      <div class="column">
-            <figure class="image image is-150x150" >
-              <%= image_tag @info.picture.variant(resize_to_limit: [640, 640]),class:"is-rounded" if @info.picture.attached? %>
-            </figure>
-      </div>
-      <!-- contact --> 
-      <div class="column has-text-grey-light has-text-right-in-desktop is-size-4 mt-6 ml-6">
-            <p class=has-text-weight-light>Taiwan</p>
-            <div class="social-icon">
-                  <%=link_to "mailto:benny08118@gmail.com" ,class:"github is-mi" do%>
-                        <p class="has-text-black">
-                          <i class="fas fa-envelope-open-text"></i>  E-Mail
-                        </p>
-                        <%end%>
-            </div>
-            <div class="social-icon">
-                  <%=link_to "https://benny08118.medium.com/" ,class:"github " do%>
-                        <p class="has-text-black">
-                          <i class="fab fa-medium"></i>  Medium
-                        </p>
-                        <%end%>
-            </div>
-            <div class="social-icon">
-                  <%=link_to "https://github.com/fttp0165" ,class:"github" do%>
-                        <p class="has-text-black"> 
-                          <i class="fab fa-github has-text-black"></i>  GitHub
-                        </p>
-                        <%end%>
-            </div>
-            <div class="social-icon"></div>
-            <div class="social-icon"></div>
-      </div>
+  <div class="column mt-6">
+    <h1 class="title">林宗慶/Benny</h1><br />
+
+  </div>
+  <div class="column">
+    <figure class="image image is-150x150">
+      <%= image_tag @info.picture.variant(resize_to_limit: [640, 640]),class:"is-rounded" if @info.picture.attached? %>
+    </figure>
+  </div>
+  <!-- contact -->
+  <%=render "side"%>
 </section>
-<%= render './common/tab'%>
-<hr>
-<div class="hr"></div>
+<%= render './common/tab' %>
+  <hr>
+  <div class="hr"></div>
 
-<section class="section columns ">
-      <!-- 簡介 與 歷程 -->
-      <div class="box column has-text-link mx-1 mb-0" >
-            <div class="summary">
-                  <div class="title title-content">簡介</div>
-                  <div class="summary-content">
-                        <pre><%= @info.summary %></pre>
-                  </div>
-            </div>
-            <hr>
-            <div class="education mt-6">
-                  <div class="title title-content">Experience</div>
-                  <div class="timeline">
-  <header class="timeline-header">
-    <span class="tag is-medium is-primary">Start</span>
-  </header>
-  <div class="timeline-item">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <p class="heading">January 2016</p>
-      <p>Timeline content - Can include any HTML element</p>
-    </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-marker is-image is-32x32">
-      <img src="https://bulma.io/images/placeholders/32x32.png">
-    </div>
-    <div class="timeline-content">
-      <p class="heading">February 2016</p>
-      <p>Timeline content - Can include any HTML element</p>
-    </div>
-  </div>
-  <header class="timeline-header">
-    <span class="tag is-primary">2017</span>
-  </header>
-  <div class="timeline-item">
-    <div class="timeline-marker is-icon">
-      <i class="fa fa-flag"></i>
-    </div>
-    <div class="timeline-content">
-      <p class="heading">March 2017</p>
-      <p>Timeline content - Can include any HTML element</p>
-    </div>
-  </div>
-  <div class="timeline-header">
-    <span class="tag is-medium is-primary">End</span>
-  </div>
-</div>
-
-            </div>
+  <section class="section columns ">
+    <!-- 簡介 與 歷程 -->
+    <div class="box column has-text-link mx-1 mb-0">
+      <div class="summary">
+        <div class="title title-content">Introduce</div>
+        <div class="summary-content">
+          <pre><%= @info.summary %></pre>
+        </div>
       </div>
+      <hr>
+      <%=render "experience",exps: @exps %>
+    </div> 
+    <!-- 作品 與 技能 -->
+    <div class="box column has-text-link mx-1">
+      <%=render "project" ,projects: @projects%>
+        <hr>
+        <%=render "skill" ,skills: @skills%>
+    </div>
 
-      
-      <!-- 作品 與 技能 -->
-      <div class="box column has-text-link mx-1">
-            <div class="project">
-              <div class="title title-content">PROJECT</div>
-              <div class="project-content">
-                  <section class="accordions">
-                    <%@projects.each_with_index do |project,index|%>
-                        <article class="accordion"  data-controller="drop" data-drop-target="output">
-                          <div class="accordion-header">
-                            <%=project.project_name%>
-                            <button class="toggle has-background-info" aria-label="toggle" data-action="click->drop#drop"></button>
-                          </div>
-                          <div class="accordion-body">
-                            <div class="accordion-content" >
-                              <div class="column"  data-controller="lightbox" data-lightbox-lightboxname-value=<%="m-#{index.to_s}"%>>
-                                <div class="image is-2by1" >
-                                  <%= image_tag project.project_picture.variant(resize_to_limit: [640, 340]),class:"modal-button","data-action":"click->lightbox#show" if project.project_picture.attached? %>
-                                </div>
-                                <div class=" <%="modal"+" "+"m-#{index}"%>">
-                                  <div class="modal-background" data-action="click->lightbox#close"></div>
-                                  <div class="modal-content">
-                                    <p class="image">
-                                      <%= image_tag project.project_picture if project.project_picture.attached? %>
-                                    </p>
-                                  </div>
-                                  <button class="modal-close is-large has-background-info" data-action="click->lightbox#close" aria-label="close"></button>
-                                </div>
-                                <div class="colum">
-                                  <%=project.project_content%>
-                                </div>
-                            </div>
-                            </div>
-                          </div>
-                        </article>
-                      <%end%>
-                      
-                      </section>
-                      
-              </div>
-            </div>
-            <hr>
-            <div  class="education mt-6">
-                  <div class="title title-content">SKILL</div>
-                  <div class="skill-content" >
-                        <ul class="block-list is-small is-outlined is-success is-centered">
-                              <%@skills.each do |skill|%>
-                                <li ><%=skill.skill_name%></li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="<%=skill.skill_value%>" value="<%="#{skill.skill_value}"%>"    max="100"></progress>
-                              <%end%>
-                         
-                        </ul>
-                  </div>
-            </div>
-      </div>
-  
-</section>
-
+  </section>

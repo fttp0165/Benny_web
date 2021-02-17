@@ -9,13 +9,12 @@ class Admin::ExperiencesController < Admin::BaseController
   end
 
   def create
-    ff
     @exp=Experience.new(exp_params)
-    # if @exp.save
-    #   redirect_to admin_experiences_path,notice:"新增經歷成功"
-    # else
-    #   render :new
-    # end
+    if @exp.save
+      redirect_to admin_experiences_path,notice:"新增經歷成功"
+    else
+      render :new
+    end
   end
 
   def edit

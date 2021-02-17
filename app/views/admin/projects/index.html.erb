@@ -1,12 +1,17 @@
+<div class="field">
 <%=link_to "新增專案",new_admin_project_path,class:"button is-info"%>
+</div>
+<br>
+
 <div class="columns has-background-light" >
-  <div class="column">
+  <div class="column ">
    <%@projects.each do|project|%>
-    <%= render  'project_card',project: project%>
+     <div class="field">
+      <%= render  'project_card',project: project%>
+     </div>
+     <br>
    <%end%>
   </div>
   </div>
-  <div class="column">
-    
-  </div>
+  <div class="column"></div>
 </div>

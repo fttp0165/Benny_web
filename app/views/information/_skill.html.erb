@@ -1,0 +1,11 @@
+<div  class="education mt-6">
+  <div class="title title-content">SKILL</div>
+  <div class="skill-content" >
+        <ul class="block-list is-small is-outlined is-success is-centered">
+              <%skills.each do |skill|%>
+                <li ><%=skill.skill_name%></li><progress  id="progress" class="progress is-primary" data-controller="programbar"  data-programbar-target="value" data-value="<%=skill.skill_value%>" value="<%="#{skill.skill_value}"%>"    max="100"></progress>
+              <%end%>
+         
+        </ul>
+  </div>
+</div>

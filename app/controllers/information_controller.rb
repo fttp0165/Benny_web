@@ -1,9 +1,9 @@
 class InformationController < ApplicationController
   def index
-
     @info=Information.first unless Information.nil?
     @projects=Project.all
     @skills=Skill.all
+    @exps=Experience.all
   end
   def new 
     @info=Information.new

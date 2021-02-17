@@ -1,13 +1,17 @@
-<%=link_to "新增技能",new_admin_skill_path,class:"button is-info"%>
+<div class="field">
+  <%=link_to "新增技能",new_admin_skill_path,class:"button is-info"%>
+</div>
 <div class="columns">
   <div class="column">
     <%@skills.each do |skill|%>
-    <div class="box">
-      <%=skill.skill_name%>
-      <progress class="progress is-primary" value="<%=skill.skill_value%>" max="100"> <%=skill.skill_value%>%</progress>
-      <%=link_to "編輯",edit_admin_skill_path(skill),class:"button is-info"%>
-      <%=link_to "刪除",admin_skill_path(skill),method: :delete,data:{confirm:"Are you sure?"},class:"button is-danger"%>
-    </div>
+    <div class="field">
+      <div class="box">
+        <%=skill.skill_name%>
+        <progress class="progress is-primary" value="<%=skill.skill_value%>" max="100"> <%=skill.skill_value%>%</progress>
+        <%=link_to "編輯",edit_admin_skill_path(skill),class:"button is-info"%>
+        <%=link_to "刪除",admin_skill_path(skill),method: :delete,data:{confirm:"Are you sure?"},class:"button is-danger"%>
+      </div>
+   </div>
     <%end%>
   </div>
 </div>
