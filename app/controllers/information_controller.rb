@@ -3,7 +3,7 @@ class InformationController < ApplicationController
     @info=Information.first unless Information.nil?
     @projects=Project.all
     @skills=Skill.all
-    @exps=Experience.all
+    @exps=Experience.order(position: :desc)
   end
   def new 
     @info=Information.new
