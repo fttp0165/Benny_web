@@ -7,7 +7,7 @@ class SkillsController < ApplicationController
   def create
     @skill=Skill.new(skill_params_permit)
     if @skill.save
-      redirect_to root_path
+      redirect_to admin_skills_path
     else
       render :new
     end
