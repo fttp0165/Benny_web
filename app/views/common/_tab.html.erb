@@ -1,7 +1,13 @@
-<div class="tabs is-centered">
+<div class="tabs is-centered" >
   <ul>
-    <li class="is-active"><a>簡介</a></li>
-    <li><a>作品</a></li>
-    <li><a>文章</a></li>
+    <li class=""  data-tab-target="li">
+      <%=link_to '簡介',root_path %>
+    </li>
+    <li data-tab-target="li">
+      <%=link_to '作品',projects_path%>
+    </li>
+    <li  data-tab-target="li">
+      <%=link_to '文章',projects_path%>
+    </li>
   </ul>
 </div>
