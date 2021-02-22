@@ -35,7 +35,6 @@ gem 'figaro', '~> 1.2'
 gem "omniauth-rails_csrf_protection"
 #soft delete
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
-
 gem 'acts_as_list'
 
 group :development, :test do

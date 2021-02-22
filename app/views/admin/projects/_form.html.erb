@@ -5,7 +5,10 @@
         <%= form.text_field :project_name ,class:"input"%>
       </div>
 </div>
-
+<div class="field">
+  <label class="label">網站連結</label>
+  <%= form.text_field :web_link ,class:"input"%>
+</div>
 <div class="field">
       <label class="label">上傳大頭照</label>
       <div class="control">
@@ -13,11 +16,10 @@
       </div>
 </div>
 <div class="field">
-      <label class="label">簡介</label>
-     
-        <%= form.rich_text_area :project_content ,class:"textarea textarea_size",rows:"50"%>
-      
+  <label class="label">簡介</label>
+  <%= form.rich_text_area :project_content ,class:"textarea textarea_size",rows:"50"%>
 </div>
+
 <div class="level">
 <%= form.submit '送出'%>
 </div>
