@@ -16,4 +16,10 @@ module BennyWeb
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+
+    class Application < Rails::Application
+      config.load_defaults 6.0 # I'm using Rails 6 at the time of this article
+      config.exceptions_app = self.routes # Add this line
+    end
+
 end
