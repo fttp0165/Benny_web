@@ -10,7 +10,9 @@
         <div class="media-content">
           <p class="title is-4"><%=link_to project.project_name,project_path(project)%></p>
           <p class="subtitle is-6"><%=strip_tags(project.project_content.to_s).truncate(100)%></p>
+          <p class="subtitle is-6"><%=link_to "網站位址",project.web_link unless project.web_link.nil?%></p>
         </div>
+      
       </div>
     </div>
   </div>

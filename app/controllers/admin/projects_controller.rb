@@ -11,8 +11,13 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def create
-    
-  end
+    @project=current_user.projects.new(project_params)
+    if @project.save
+      redirect_to admin_projects_path
+    else
+      render :new
+    end   
+  end  
 
   def edit
     
@@ -34,7 +39,7 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def project_params
-    params.require(:projects).permit(:project_name,:project_content,:user_id)
+    params.require(:project).permit(:project_name,:project_content,:user_id,:web_link)
   end
   
 end
