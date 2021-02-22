@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :find_project,except:[:index,:new,:create]
 
   def index
-    @projects=Article.projects.all
+    @projects=Project.all
   end
   
   def show
