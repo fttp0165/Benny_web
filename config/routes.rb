@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :projects
   resources :information
   resources :skills
+  resources :articles,only:[:show,:index]
 end
