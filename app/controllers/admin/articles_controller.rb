@@ -2,7 +2,7 @@ class Admin::ArticlesController < Admin::BaseController
   before_action :find_artivle,only:[:edit,:update,:destory]
 
   def index
-    @articles=Article.all
+    @articles=Article.order(cewated_at: :desc).page(params[:page]).per(10)
   end
 
   def new
